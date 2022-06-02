@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family: "Fira sans", sans-serif;
+text-decoration: none;
+}
+.App {
+  text-align: center;
+}
+/*  NAVIGATION NAV */
+.navigate-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px ;
+}
+.navigate {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  width: 400px;
+}
+.navigate p {
+  cursor: pointer;
+  align-items: center;
+  display: flex; 
+}
+.navigate > * {
+  /* flex: 1 1 33%; */
+  /* border:2px solid; */
+}
+
+
+/* HOME */
+.home-container {
+  width: min(90%, 70.5rem);
+  margin: 20px auto;
+}
+.home-content {
+  padding-bottom: 20px;
+  /* overflow-wrap: break-word; */
+}
+.btn-start {
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  justify-content: center;
+  background-color: rgb(38, 255, 38);
+}
+
+.btn-start:hover{
+  background-color: rgb(4, 117, 4);
+  color: #fff;
+}
+/* PROJECT */
+.projects-flow {
+  justify-content: center;
+  flex-wrap: wrap;   /* makes a new line */
+display: flex;
+
+}
+/* .project-columns > * {
+  flex: 1 1 33%;
+} */
+.links {
+  color: #fff;
+  text-decoration-color: none;
+}
+.project-content {
+  padding: 1.5em;
+  /* text-align: left; */
+}
+.project-card{
+  border: 2px solid black;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+
+  /* transition: transform 500ms ease; */
+  transition: all .3s ease;
+  overflow: hidden;
+  background-color: black !important;
+  color: white;
+
+  /* background-image: url(''); */
+  /* background-size: cover; */
+}
+
+.project-title {
+  font-size: 2rem;
+  text-shadow: .13rem .11rem .3rem black;
+}
+
+.project-body {
+  transform: translateY(8em);
+}
+.project-card:hover .project-body {
+  transform: translateY(0);
+  transition: all .7s ease;
+
+}
+
+.project-card:hover {
+  background-image: none !important;
+  cursor: pointer;
+  transform: scale(1.06);
+  transition: all .3s ease;
+  border: 2px solid black;
+}
+.project-card:hover .project-content p, .project-title {
+  padding: 10px;
+  transform: translateY(-2);
+  transition: all .5s ease;
+}
+.project-btn {
+  font-size: 1.2rem;
+}
+
+/* CONTACT */
+li {
+  list-style-type: none;
+  padding: 8px;
+
+}
+li a {
+  text-decoration: none;
+  color:black;
+}
+.btn button {
+  margin-top: 6px;
+  width: 100px;
+  line-height: 2;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  /* padding: 20px; */
+}
+.btn-resume button {
+  font-size: 1rem;
+  margin-top: 6px;
+  width: 100px;
+  line-height: 1.2;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.form p {
+  font-size: 1.7rem;
+}
+.form {
+  padding: 20px;
+}
+.form input {
+  margin: 6px;
+  width: 200px;
+  line-height: 2;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  padding-left: 10px;
+}
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+.footer {
+  margin-bottom: 10px;
+}
+footer span {
+  font-size: 2rem;
+  background: none;
+  justify-content: space-between;
+}
+footer span:hover {
+  transition: 2s;
+}
