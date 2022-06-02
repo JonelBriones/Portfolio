@@ -8,7 +8,9 @@ const NavigatePages = (props) => {
 
     const navigate = useNavigate();
     const redirect = (page) => {
-        navigate(page);
+        if(page==="/home") {
+            navigate("/")
+        } else navigate(page);
     }
     return (
         <div className='navigate-container'>

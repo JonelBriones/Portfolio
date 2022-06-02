@@ -15,7 +15,6 @@ const Projects = (props) => {
             page={'Projects'}
             right={'blog'}
             />
-            <a href={'https://github.com/JonelBriones/solo_project/tree/master/Gym_App'}>link</a>
             <div className='home-content'>
                 <div className='projects-flow'>
                     {

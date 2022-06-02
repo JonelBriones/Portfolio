@@ -7,7 +7,7 @@ import * as RiMailSendFill from 'react-icons/ri';
 export const SidebarData = [
     {
         title: "Home",
-        path: '/home',
+        path: '/',
         icon: <AiIcons.AiFillHome />,
         className: 'nav-text'
     },
