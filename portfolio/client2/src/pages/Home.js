@@ -18,7 +18,7 @@ const Home = () => {
             <div className='content'>
                 <div className='transition'>
                     <h1>
-                        Hi, I am <br/> <span className='first'>Jonel </span> 
+                        Hi, I am <br/> <span className='first'>Jonel</span> 
                         <span className='slide'>
                             <span className='second'>Briones</span>
                         </span>
