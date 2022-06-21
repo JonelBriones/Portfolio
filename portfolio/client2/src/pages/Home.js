@@ -1,13 +1,30 @@
-import React from 'react'
-// import icons from "../images"
+import React, {useState} from 'react'
+import Projects from '../components/Projects'
+import '../App.css';
 const Home = () => {
+    const [images,setImages] = useState([
+        "../project-images/Screen Shot 2022-06-21 at 3.12.55 AM.png",
+        "../project-images/Screen Shot 2022-06-21 at 3.43.54 AM.png",
+        "../project-images/Screen Shot 2022-06-21 at 4.02.05 AM.png"
+    ])
+    const [currentImg,setCurrentImg] = useState(0)
+    const previous = () => {
+        if(images[currentImg-1]===undefined) {
+            setCurrentImg(images.length-1)
+        } else setCurrentImg(currentImg-1)
+    }
+    const next = () => {
+        if(images[currentImg+1]===undefined) {
+            setCurrentImg(0)
+        } else setCurrentImg(currentImg+1)
+    }
   return (
     <>
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
+            {/* <li><a href="#skills">Skills</a></li> */}
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -16,17 +33,23 @@ const Home = () => {
 
         <section className='section-1' id="home">
             <div className='content'>
-                <div className='transition'>
-                    <h1>
-                        Hi, I am <br/> <span className='first'>Jonel</span> 
-                        <span className='slide'>
-                            <span className='second'>Briones</span>
-                        </span>
-                        <br/>
-                        <span className='dynamic-text'>Full Stack Developer</span>
-                    </h1>
+                <div className='hero'>
+                    <span>Hi, I am <br/></span> 
+                    <div className='transition'>
+                            <span className='first'>Jonel</span> 
+                            <span className='slide'>
+                                <span className='second'>Briones</span>
+                            </span>
+                            <br/>
+                    </div>
+                    <div className='transition2'>
+                            <span className='third'>Full Stack</span>
+                            <span className='slide'>
+                                <span className='fourth'>Developer</span>
+                            </span>
+                    </div>
                 </div>
-                <div>
+                <div className='hero-icons'>
                     <a href="https://github.com/JonelBriones" target="_blank">
                         <img src="../github.png" alt="html"></img>
                     </a>
@@ -34,12 +57,12 @@ const Home = () => {
                         <img src="../linkedin.png" alt="html"></img>
                     </a>
                 </div>
-            <div>Download Resume</div>
+            <div><a href="#resume" download="Jonel's Resume">Download Resume</a></div>
             </div>
         </section>
         <section id="about">
             <div className='content'>
-            <h1>Fun Facts About me</h1>
+            <h1>Fun Facts</h1>
             <ul>
                 <li>
                     I am a recent graduate from <a href="https://www.codingdojo.com/b" target="_blank">Coding Dojo</a>.
@@ -51,7 +74,7 @@ const Home = () => {
         </section>
         <section id="skills">
             <div className='content'>
-            <h1>Skills Section</h1>
+            <h1>Skills</h1>
             <div className='tech-icons'>
                 <img src="../tech-icons/html-5.png" alt="html"></img>
                 <img src="../tech-icons/css.png" alt="css"></img>
@@ -64,7 +87,23 @@ const Home = () => {
         </section>
         <section id="projects">
             <div className='content'>
-            <h1>Projects Section</h1>
+            <h1>Projects</h1>
+            <div className='project-carousel'>
+                <button className='carousel-btn prev' onClick={previous}>&#8656;</button>
+                <button className='carousel-btn next' onClick={next}>&#8658;</button>
+                <ul>
+                    {/* {
+                        images.map((project,index)=>(
+                            <>
+                        <li className='carousel-slide' data-active key={index}><img src={project}></img></li>
+                        <button className='carousel-btn prev'>&#8656;</button>
+                        <button className='carousel-btn next'>&#8658;</button>
+                            </>
+                        ))
+                    } */}
+                    <li className='carousel-slide' data-active ><img src={images[currentImg]}></img></li>
+                </ul>
+            </div>
             </div>
         </section>
         <section id="blog">

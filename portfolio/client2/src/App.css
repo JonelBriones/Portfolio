@@ -1,15 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .tech-icons img {
   height: 100px;
-  margin:0px 5px;
+}
+.hero {
+  font-family: 'Caveat', cursive, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+.hero-icons { 
+  margin-bottom: 20px;
 }
 section {
   background-color: rgb(50, 245, 255);
@@ -19,29 +26,43 @@ section {
   justify-content: center;
   text-align: center;
   width:100%;
-  height:100vh;
   color:#fff;
-  position: relative;
+  /* position: relative; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height:100vh;
 }
-section#home h1 {
-  line-height: 2.5rem;
-  /* text-align: start; */
-  /* border:2px solid red; */
-}
+
 section h1 {
   font-size: 2rem;
   padding: 20px;
 }
-.transtion {
-  display: inline-block;
+section#home .content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* height: 100vh; */
+  /* width:100vw; */
+}
+section#home span {
+  text-indent: 10px;
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+.transition {
+  font-size: 40px;
   animation: fadeIn 1.5s forwards;
   opacity: 0;
   transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  letter-spacing: 1px;
+}
+.transition2 {
+  font-size: 40px;
+  /* display: inline-block; */
+  animation: fadeIn2 3s forwards;
+  opacity: 0;
+  /* transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86); */
 }
 .first {
   display: inline-block;
@@ -51,22 +72,37 @@ section h1 {
   position: relative;
 }
 .slide {
-  /* display: inline-block; */
-  overflow:hidden;
+  display: inline-flex;
+  overflow: hidden;
 }
 .second {
-  display: inline-block;;
+  /* display: inline-block; */
 z-index: -1;
-animation: secondspan 1.5s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86)
+animation: secondspan 2s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86)
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
     transition: scale(1);
   }
-  50% {
+  30% {
+    opacity: 0;
+    transition: scale(.5);
+  }
+  100% {
     opacity: 1;
-    transition: scale(1.1);
+    transition: scale(1);
+  }
+}
+@keyframes fadeIn2 {
+  0% {
+    opacity: 0;
+    transition: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transition: scale(.5);
   }
   100% {
     opacity: 1;
@@ -77,7 +113,7 @@ animation: secondspan 1.5s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86)
   0%{
     transform:translateX(50%)
   }
-  60%{
+  40%{
     transform:translateX(50%)
   }
   100%{
@@ -88,7 +124,29 @@ animation: secondspan 1.5s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86)
   0%{
     transform:translateX(-100%)
   }
-  60%{
+  55%{
+    transform:translateX(-100%)
+  }
+  100%{
+    transform:translateX(0%)
+  }
+}
+@keyframes thirdspan {
+  0%{
+    transform:translateX(0%)
+  }
+  70%{
+    transform:translateX(50%)
+  }
+  100%{
+    transform:translateX(0%)
+  }
+}
+@keyframes fourthspan {
+  0%{
+    transform:translateX(-100%)
+  }
+  50%{
     transform:translateX(-100%)
   }
   100%{
@@ -102,7 +160,7 @@ section#home {
 section#home a {
   text-decoration: none;
 }
-section#home div {
+section#home .hero {
   padding: 20px;
   /* border:2px solid red; */
 }
@@ -116,7 +174,7 @@ section#about {
   background-position: 25% 25%;
 }
 section .content {
-  position: relative;
+  /* position: relative; */
   width:100%;
   height:100%;
   color:#fff;
@@ -130,10 +188,11 @@ section .content {
 }
 html {
   scroll-behavior: smooth;
+  width:100vw
 }
 nav {
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   width: 100%;
   height:60px;
@@ -162,4 +221,64 @@ ul li {
 a {
   /* text-decoration: none; */
   color: white;
+}
+section#project .content h1 {
+  /* position: relative; */
+  margin-top: 100px;
+  
+}
+.project-carousel {
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+}
+.project-carousel > ul {
+  list-style: none;
+}
+.carousel-slide {
+  position: absolute;
+  inset:  0;
+  opacity: 0;
+  transition: opacity ease-in-out;
+  transition-delay: 200ms;
+}
+.carousel-slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0;
+}
+.carousel-slide > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* object-position: center; */
+}
+.project-carousel button {
+  position: absolute;
+  z-index: 2;
+  background-color: none;
+  border: none;
+  font-size: 4rem;
+  top:50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,.5);
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+  background-color: rgba(0,0,0,0.1);
+}
+.project-carousel button:hover,
+.project-carousel button:focus {
+  color: white;
+  background-color: rgba(0,0,0,.2);
+}
+.project-carousel button:focus {
+  outline:1px solid black;
+}
+.carousel-btn.prev {
+  left:1rem;
+}
+.carousel-btn.next {
+  right:1rem;
 }
