@@ -1,22 +1,39 @@
 import React, {useState} from 'react'
-import Projects from '../components/Projects'
 import '../App.css';
 const Home = () => {
     const [images,setImages] = useState([
-        "../project-images/Screen Shot 2022-06-21 at 3.12.55 AM.png",
-        "../project-images/Screen Shot 2022-06-21 at 3.43.54 AM.png",
-        "../project-images/Screen Shot 2022-06-21 at 4.02.05 AM.png"
-    ])
+    {
+            name:"Gym Ecommerce",
+            url:"https://github.com/JonelBriones/solo_project",
+            image:  "../project-images/gym-ecommerce.png"
+    },
+    // {
+    //         name:"Portfolio",
+    //         image: "../project-images/Screen Shot 2022-06-21 at 3.12.55 AM.png"
+    // },
+])
     const [currentImg,setCurrentImg] = useState(0)
+    const [previousImg,setPreviousImg] = useState(0)
+    console.log(previousImg)
     const previous = () => {
         if(images[currentImg-1]===undefined) {
             setCurrentImg(images.length-1)
-        } else setCurrentImg(currentImg-1)
+            setPreviousImg(images.length+1)
+        } else 
+        setCurrentImg(currentImg-1) 
+        setPreviousImg(currentImg+1)
     }
     const next = () => {
         if(images[currentImg+1]===undefined) {
             setCurrentImg(0)
-        } else setCurrentImg(currentImg+1)
+            setPreviousImg(images.length-1)
+        } else 
+        setCurrentImg(currentImg+1)
+        setPreviousImg(currentImg-1)
+
+    }
+    const details = (project) => {
+        console.log(project.name)
     }
   return (
     <>
@@ -76,18 +93,18 @@ const Home = () => {
             <div className='content'>
             <h1>Skills</h1>
             <div className='tech-icons'>
-                <img src="../tech-icons/html-5.png" alt="html"></img>
-                <img src="../tech-icons/css.png" alt="css"></img>
+                <img src="../tech-icons/html-5 (2).png" alt="html"></img>
+                <img src="../tech-icons/css-3.png" alt="css"></img>
                 <img src="../tech-icons/java-script.png" alt="js"></img>
-                <img src="../tech-icons/nodejs.png" alt="nodejs"></img>
-                <img src="../tech-icons/react.png" alt="react"></img>
-                <img src="../tech-icons/mongodb-logo.jpg" alt="mongodb" style={{borderRadius: "50%"}}></img>
+                <img src="../tech-icons/node-js-2.png" alt="nodejs"></img>
+                <img src="../tech-icons/physics.png" alt="react"></img>
+                <img src="../tech-icons/mongodb.png" alt="mongodb" style={{borderRadius: "50%"}}></img>
             </div>
             </div>
         </section>
         <section id="projects">
             <div className='content'>
-            <h1>Projects</h1>
+            <h1>Project</h1>
             <div className='project-carousel'>
                 <button className='carousel-btn prev' onClick={previous}>&#8656;</button>
                 <button className='carousel-btn next' onClick={next}>&#8658;</button>
@@ -101,19 +118,27 @@ const Home = () => {
                             </>
                         ))
                     } */}
-                    <li className='carousel-slide' data-active ><img src={images[currentImg]}></img></li>
+                    {/* {
+                        previousImg===currentImg? <li className='carousel-slide'><img src={images[currentImg]}></img></li>: <li className='carousel-slide' data-active><img src={images[currentImg]}></img></li>
+                    } */}
+                     <a href={images[currentImg].url}target="_blank">
+                        <li className='carousel-slide' data-active>
+                            <img src={images[currentImg].image}></img>
+                        </li>
+                    </a>
                 </ul>
+                {/* <span>{images[currentImg].name}</span> */}
             </div>
             </div>
         </section>
-        <section id="blog">
+        {/* <section id="blog">
             <div className='content'>
             <h1>Blog Section</h1>
             </div>
-        </section>
+        </section> */}
         <section id="contact">
             <div className='content'>
-                <h1>Contact Me Form Section</h1>
+                <h1><a href="mailto:jonel.c.briones@gmail.com">Contact Me</a></h1>
             </div>
             </section>
     </main>
